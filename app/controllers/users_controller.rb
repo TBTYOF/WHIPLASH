@@ -3,6 +3,8 @@ class UsersController < ApplicationController
 	end
 	def about
 	end
+  def topic
+  end
 
   def index
   end

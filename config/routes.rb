@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'users#home'
   get 'home/about' => 'users#about'
+  get 'home/topic' => 'users#topic'
 
   resources :users
   resources :blogs do
