@@ -15,3 +15,28 @@
  */
  @import "bootstrap-sprockets";
  @import "bootstrap";
+
+ * {
+ color: #6c6b6b;
+ }
+
+ a {
+ color: #6c6b6b;
+ }
+
+ header, nav, h3, .main-visual, footer, .font-family {
+	font-family: Chalkduster, "Bradley Hand", Couriser, "Segoe Print", sans-serif;
+}
+
+ .border-bottom {
+ text-align: center;
+ border-bottom: 8px solid #f7f7f7;
+ }
+
+ .text-margin-bottom {
+ margin-bottom: 50px;
+ }
+
+ .blogs-container {
+ border-bottom: 1px solid #f7f7f7;
+ }

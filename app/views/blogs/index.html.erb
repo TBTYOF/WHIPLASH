@@ -1,27 +1,53 @@
 <div class="container">
 	<div class="row">
 		<div class="col-md-3">
-			<%= render "layouts/sidebar_left" %>
+			<%= render "layouts/sidebar_left", user: @user %>
 		</div>
 
 		<div class="col-md-6">
-			<h2>Blogs</h2>
+			<h3 class="text-margin-bottom border-bottom">Recent Blogs</h3>
 			<% @blogs.each do |blog| %>
-				<%= attachment_image_tag blog, :blog_image, :fill, 200, 200, format: 'jpg' %>
-				<h4>title</h4>
-				<%= link_to blog.title, blog_path(blog) %>
-
-				<%= blog.created_at.strftime('%Y/%m/%d') %>
-				<p style="color: red;">Category</p>
-				<%= attachment_image_tag blog.user, :profile_image, :fill, 40, 40, format: 'jpg', fallback: "no_image.jpg", size:'40x40' %>
-				<%= link_to blog.user.name, user_path(blog.user_id) %>
-
+			<div class="col-md-12 blogs-container"  style="margin-bottom: 30px;">
+				<div class="col-md-7">
+					<%= attachment_image_tag blog, :blog_image, :fill, 290, 250, format: 'jpg' %>
+				</div>
+				<div class="col-md-5">
+					<table class="table">
+						<thead>
+							<tr>
+								<th colspan="2" style="font-size: 18px;"><%= link_to blog.title, blog_path(blog) %></th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td><%= blog.created_at.strftime('%Y/%m/%d') %></td>
+							</tr>
+							<tr>
+								<td class="btn" style="font-size: 11px; background-color: #848282; color: white;">Category</td>
+							</tr>
+							<tr>
+								<td colspan="2" style="border-top: none;">
+									<%= link_to user_path(blog.user_id) do %>
+										<%= attachment_image_tag blog.user, :profile_image, :fill, 60, 60, format: 'jpg', fallback: "no_image.jpg", size:'60x60' %><br>
+										<%= blog.user.name %>
+									<% end %>
+								</td>
+							</tr>
+							<tr>
+								<td>Comments 100</td>
+								<td>♡200</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
 			<% end %>
-			<%= paginate @blogs, class: "paginate" %>
 		</div>
-
-		<div class="col-md-2">
+		<div class="col-md-3">
 			<%= render "layouts/sidebar_right" %>
 		</div>
+	</div>
+	<div style="text-align: center;">
+		<%= paginate @blogs, class: "paginate" %>
 	</div>
 </div>

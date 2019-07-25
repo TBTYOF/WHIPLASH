@@ -1,1 +1,21 @@
-<h2>User info</h2>
+<h3 class="border-bottom">User info</h3>
+<div class="col-md-12">
+	<table class="table" style="word-wrap:break-all;">
+		<tbody>
+			<tr>
+				<td style="border-top: none;">
+					<%= attachment_image_tag user, :profile_image, :fill, 100,100, format: 'jpeg', fallback: "no_image.jpg", size:'180x180', class: "pai" %>
+				</td>
+			</tr>
+			<tr>
+				<td><%= user.name %></td>
+			</tr>
+			<tr>
+				<td><%= user.profile_text %></td>
+			</tr>
+		</tbody>
+	</table>
+	<%= link_to edit_user_path(user), class: "btn btn-default btn-block" do %>
+		<span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>
+	<% end %>
+</div>
