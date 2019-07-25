@@ -11,4 +11,7 @@
 	<h3>Body</h3>
 	<%= @blog.blog_body %>
 
+	<%= link_to 'Edit', edit_blog_path(@blog) %>
+	<%= link_to 'Delete', blog_path(@blog), method: :delete, "data-confirm"=> "Do you really want to delete this?" %>
+
 </div>

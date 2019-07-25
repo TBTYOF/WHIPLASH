@@ -3,7 +3,7 @@
 	<% @blogs.each do |blog| %>
 		<%= attachment_image_tag blog, :blog_image, :fill, 200, 200, format: 'jpg' %>
 		<h4>title</h4>
-		<%= blog.title %>
+		<%= link_to blog.title, blog_path(blog) %>
 
 		<h4>Category</h4>
 		<p style="color: red;">未実装</p>
