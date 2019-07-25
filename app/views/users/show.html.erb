@@ -1,2 +1,10 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<div class="container">
+	<h1><%= @user.name %>'s blog list</h1>
+	<% @blogs.each do |blog| %>
+		<%= attachment_image_tag blog, :blog_image, :fill, 200, 200, format: 'jpg' %>
+		<h4>title</h4>
+		<%= link_to blog.title, blog_path(blog) %>
+
+		<%= blog.created_at.strftime('%Y/%m/%d') %>
+	<% end %>
+</div>
