@@ -1,19 +1,29 @@
-
 <div class="container">
-	<h1>Blog</h1>
-	<h3>Title</h3>
-	<%= @blog.title %>
-	<p style="color: red">Category</p>
-	<%= @blog.created_at.strftime('%Y/%m/%d') %>
+	<div class="row">
+		<div class="col-md-3">
+			<%= render "layouts/sidebar_left" %>
+		</div>
 
-	<%= attachment_image_tag @blog, :blog_image, :fill, 300, 300, format: 'jpg' %>
+		<div class="col-md-6">
+			<h1>Blog</h1>
+			<h3>Title</h3>
+			<%= @blog.title %>
+			<p style="color: red">Category</p>
+			<%= @blog.created_at.strftime('%Y/%m/%d') %>
 
-	<h3>Body</h3>
-	<%= @blog.blog_body %>
+			<%= attachment_image_tag @blog, :blog_image, :fill, 300, 300, format: 'jpg' %>
 
-	<% if @blog.user == current_user %>
-		<%= link_to 'Edit', edit_blog_path(@blog) %>
-		<%= link_to 'Delete', blog_path(@blog), method: :delete, "data-confirm"=> "Do you really want to delete this?" %>
-	<% end %>
+			<h3>Body</h3>
+			<%= @blog.blog_body %>
 
+			<% if @blog.user == current_user %>
+				<%= link_to 'Edit', edit_blog_path(@blog) %>
+				<%= link_to 'Delete', blog_path(@blog), method: :delete, "data-confirm"=> "Do you really want to delete this?" %>
+			<% end %>
+		</div>
+
+		<div class="col-md-2">
+			<%= render "layouts/sidebar_right" %>
+		</div>
+	</div>
 </div>

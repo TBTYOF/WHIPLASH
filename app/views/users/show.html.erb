@@ -1,10 +1,22 @@
 <div class="container">
-	<h1><%= @user.name %>'s blog list</h1>
-	<% @blogs.each do |blog| %>
-		<%= attachment_image_tag blog, :blog_image, :fill, 200, 200, format: 'jpg' %>
-		<h4>title</h4>
-		<%= link_to blog.title, blog_path(blog) %>
+	<div class="row">
+		<div class="col-md-3">
+			<%= render "layouts/sidebar_left" %>
+		</div>
 
-		<%= blog.created_at.strftime('%Y/%m/%d') %>
-	<% end %>
+		<div class="col-md-6">
+			<h1><strong><%= @user.name %></strong>'s blog list</h1>
+			<% @blogs.each do |blog| %>
+				<%= attachment_image_tag blog, :blog_image, :fill, 200, 200, format: 'jpg' %>
+				<h4>title</h4>
+				<%= link_to blog.title, blog_path(blog) %>
+
+				<%= blog.created_at.strftime('%Y/%m/%d') %>
+			<% end %>
+		</div>
+
+		<div class="col-md-2">
+			<%= render "layouts/sidebar_right" %>
+		</div>
+	</div>
 </div>
