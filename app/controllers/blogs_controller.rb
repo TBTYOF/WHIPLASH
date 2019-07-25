@@ -17,4 +17,7 @@ class BlogsController < ApplicationController
 
   def destroy
   end
+
+  def blog_params
+    params.require(:blog).permit(:title, :blog_body, :blog_image, :user)
 end
