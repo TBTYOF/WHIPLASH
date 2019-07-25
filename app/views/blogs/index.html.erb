@@ -5,7 +5,10 @@
 		<h4>title</h4>
 		<%= link_to blog.title, blog_path(blog) %>
 
-		<h4>Category</h4>
-		<p style="color: red;">未実装</p>
+		<%= blog.created_at.strftime('%Y/%m/%d') %>
+		<p style="color: red;">Category</p>
+		<%= attachment_image_tag blog.user, :profile_image, :fill, 40, 40, format: 'jpg', fallback: "no_image.jpg", size:'40x40' %>
+		<%= blog.user.name %>
+
 	<% end %>
 </div>
