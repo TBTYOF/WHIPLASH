@@ -8,7 +8,7 @@
 		<%= blog.created_at.strftime('%Y/%m/%d') %>
 		<p style="color: red;">Category</p>
 		<%= attachment_image_tag blog.user, :profile_image, :fill, 40, 40, format: 'jpg', fallback: "no_image.jpg", size:'40x40' %>
-		<%= blog.user.name %>
+		<%= link_to blog.user.name, user_path(blog.user_id) %>
 
 	<% end %>
 	<%= paginate @blogs, class: "paginate" %>
