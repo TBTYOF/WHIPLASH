@@ -5,6 +5,7 @@ class BlogsController < ApplicationController
 
   def show
     @blog = Blog.find(params[:id])
+    @login_user = current_user
   end
 
   def new
@@ -12,8 +13,9 @@ class BlogsController < ApplicationController
   end
   def create
     blog = Blog.new(blog_params)
+    blog.user_id = current_user.id
     blog.save
-    redirect_to blog_path(blog)
+    redirect_to blog_path(blog.id)
   end
 
   def edit
