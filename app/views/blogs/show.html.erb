@@ -1,2 +1,14 @@
-<h1>Blogs#show</h1>
-<p>Find me in app/views/blogs/show.html.erb</p>
+<h1>Blog</h1>
+<div class="container">
+	<h3>Title</h3>
+	<%= @blog.title %>
+
+	<h3>Category</h3>
+	<p style="color: red">未実装</p>
+
+	<%= attachment_image_tag @blog, :blog_image, :fill, 300, 300, format: 'jpg' %>
+
+	<h3>Body</h3>
+	<%= @blog.blog_body %>
+
+</div>
