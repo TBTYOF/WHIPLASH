@@ -1,2 +1,13 @@
-<h1>Users#edit</h1>
-<p>Find me in app/views/users/edit.html.erb</p>
+<div class="container">
+	<h1>User edit</h1>
+	<%= form_for(@user) do |f| %>
+		<h2>Name</h2>
+		<%= f.text_field :name %>
+		<h2>Profile</h2>
+		<%= f.text_area :profile_text %>
+		<h2>Profile image</h2>
+		<%= f.attachment_field :profile_image %>
+		<%= f.submit 'Update' %>
+	<% end %>
+	<%= link_to 'Cancel', user_path(@user) %>
+</div>

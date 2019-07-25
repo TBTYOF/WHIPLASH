@@ -1,5 +1,5 @@
 <div class="container">
-	<h1>Edit</h1>
+	<h1>Blog edit</h1>
 	<%= form_for(@blog) do |f| %>
 		<h3>Title</h3>
 		<%= f.text_field :title %>
@@ -13,7 +13,7 @@
 		<h3>Image</h3>
 		<%= f.attachment_field :blog_image %>
 
-		<%= f.submit 'Create' %>
+		<%= f.submit 'Update' %>
 	<% end %>
 	<%= link_to 'Cancel', blogs_path %>
 
