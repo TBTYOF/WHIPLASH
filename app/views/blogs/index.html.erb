@@ -1,2 +1,11 @@
-<h1>Blogs#index</h1>
-<p>Find me in app/views/blogs/index.html.erb</p>
+<div class="container">
+	<h1>Blogs</h1>
+	<% @blogs.each do |blog| %>
+		<%= attachment_image_tag blog, :blog_image, :fill, 200, 200, format: 'jpg' %>
+		<h4>title</h4>
+		<%= blog.title %>
+
+		<h4>Category</h4>
+		<p style="color: red;">未実装</p>
+	<% end %>
+</div>
