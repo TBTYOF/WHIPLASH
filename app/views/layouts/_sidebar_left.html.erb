@@ -15,8 +15,10 @@
 			</tr>
 		</tbody>
 	</table>
-	<%= link_to edit_user_path(create_user), class: "btn btn-default btn-block" do %>
-		<span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>
+	<% if info_user == current_user %>
+		<%= link_to edit_user_path(create_user), class: "btn btn-default btn-block" do %>
+			<span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>
+		<% end %>
 	<% end %>
 	<div style="margin-top: 50px;">
 		<h3 class="border-bottom" style="margin-bottom: 30px;">Create New</h3>
