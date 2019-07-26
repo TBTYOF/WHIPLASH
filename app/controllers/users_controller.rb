@@ -8,11 +8,17 @@ class UsersController < ApplicationController
 
   def index
     @users = User.all
+    @info_user = current_user
+    @create_user = current_user
+    @create_new = Blog.new
   end
 
   def show
     @user = User.find(params[:id])
     @blogs = @user.blogs
+    @info_user = @user
+    @create_user = current_user
+    @create_new = Blog.new
   end
 
   def edit

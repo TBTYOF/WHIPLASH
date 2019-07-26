@@ -1,22 +1,43 @@
 <div class="container">
 	<div class="row">
 		<div class="col-md-3">
-			<%= render "layouts/sidebar_left" %>
+			<%= render "layouts/sidebar_left", info_user: @info_user, create_user: @create_user, create_new: @create_new %>
 		</div>
 
 		<div class="col-md-6">
-			<h1><strong><%= @user.name %></strong>'s blog list</h1>
+			<h3 class="text-margin-bottom border-bottom"><strong><%= @user.name %></strong>'s blog list</h3>
 			<% @blogs.each do |blog| %>
-				<%= attachment_image_tag blog, :blog_image, :fill, 200, 200, format: 'jpg' %>
-				<h4>title</h4>
-				<%= link_to blog.title, blog_path(blog) %>
-
-				<%= blog.created_at.strftime('%Y/%m/%d') %>
+			<div class="col-md-12 blogs-container"  style="margin-bottom: 30px;">
+				<div class="col-md-7">
+					<%= attachment_image_tag blog, :blog_image, :fill, 290, 250, format: 'jpg' %>
+				</div>
+				<div class="col-md-5">
+					<table class="table">
+						<thead>
+							<tr>
+								<th colspan="2" style="font-size: 18px;"><%= link_to blog.title, blog_path(blog) %></th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td style="line-height: 40px;"><%= blog.created_at.strftime('%Y/%m/%d') %></td>
+								<td class="btn" style="margin: 10px 0; font-size: 10px; background-color: #848282; color: white;">Category</td>
+							</tr>
+							<tr>
+								<td>Comments 100</td>
+								<td>♡200</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
 			<% end %>
 		</div>
-
-		<div class="col-md-2">
+		<div class="col-md-3">
 			<%= render "layouts/sidebar_right" %>
 		</div>
+	</div>
+	<div style="text-align: center;">
+		ページング実装予定
 	</div>
 </div>
