@@ -1,7 +1,7 @@
 <div class="container">
 	<div class="row">
 		<div class="col-md-3">
-			<%= render "layouts/sidebar_left", user: @user %>
+			<%= render "layouts/sidebar_left", info_user: @info_user, create_user: @create_user, create_new: @create_new %>
 		</div>
 
 		<div class="col-md-6">
@@ -21,12 +21,10 @@
 						<tbody>
 							<tr>
 								<td><%= blog.created_at.strftime('%Y/%m/%d') %></td>
+								<td class="btn" style="font-size: 10px; background-color: #848282; color: white;">Category</td>
 							</tr>
 							<tr>
-								<td class="btn" style="font-size: 11px; background-color: #848282; color: white;">Category</td>
-							</tr>
-							<tr>
-								<td colspan="2" style="border-top: none;">
+								<td colspan="2">
 									<%= link_to user_path(blog.user_id) do %>
 										<%= attachment_image_tag blog.user, :profile_image, :fill, 60, 60, format: 'jpg', fallback: "no_image.jpg", size:'60x60' %><br>
 										<%= blog.user.name %>

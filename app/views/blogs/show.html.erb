@@ -1,29 +1,40 @@
 <div class="container">
 	<div class="row">
 		<div class="col-md-3">
-			<%= render "layouts/sidebar_left" %>
+			<%= render "layouts/sidebar_left", info_user: @info_user, create_user: @create_user, create_new: @create_new %>
 		</div>
 
 		<div class="col-md-6">
-			<h1>Blog</h1>
-			<h3>Title</h3>
-			<%= @blog.title %>
-			<p style="color: red">Category</p>
-			<%= @blog.created_at.strftime('%Y/%m/%d') %>
-
-			<%= attachment_image_tag @blog, :blog_image, :fill, 300, 300, format: 'jpg' %>
-
-			<h3>Body</h3>
-			<%= @blog.blog_body %>
-
-			<% if @blog.user == current_user %>
-				<%= link_to 'Edit', edit_blog_path(@blog) %>
-				<%= link_to 'Delete', blog_path(@blog), method: :delete, "data-confirm"=> "Do you really want to delete this?" %>
-			<% end %>
+			<h3 class="text-margin-bottom border-bottom">Blog</h3>
+			<div class="col-md-12 blog-margin" style="font-size: 25px;">
+				<strong><%= @blog.title %></strong>
+			</div>
+			<div class="col-md-12 blog-margin">
+				<span class="btn" style="font-size: 10px; background-color: #848282; color: white;">Category</span>　　<%= @blog.created_at.strftime('%Y/%m/%d %H:%M') %>
+			</div>
+			<div class="col-md-12 blog-margin">
+				<%= attachment_image_tag @blog, :blog_image, :fill, 525, 450, format: 'jpg' %>
+			</div>
+			<div class="col-md-12 blog-margin">
+				<p style="word-wrap: break-word;"><%= @blog.blog_body %></p>
+			</div>
+			<div class="col-md-12 blog-margin">
+				<span>Comments 100</span>
+				<span>♡200</span>
+				<% if @blog.user == current_user %>
+					<%= link_to 'Edit', edit_blog_path(@blog) %>
+					<%= link_to 'Delete', blog_path(@blog), method: :delete, "data-confirm"=> "Do you really want to delete this?" %>
+				<% end %>
+			</div>
+			<div class="col-md-12">
+				
+			</div>
 		</div>
-
-		<div class="col-md-2">
+		<div class="col-md-3">
 			<%= render "layouts/sidebar_right" %>
 		</div>
+	</div>
+	<div style="text-align: center;">
+		paging設置予定
 	</div>
 </div>

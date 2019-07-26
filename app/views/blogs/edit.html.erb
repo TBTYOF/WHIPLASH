@@ -1,21 +1,39 @@
 <div class="container">
-	<h1>Blog edit</h1>
-	<%= form_for(@blog) do |f| %>
-		<h3>Title</h3>
-		<%= f.text_field :title %>
+	<div class="row">
+		<div class="col-md-2"></div>
+		<div class="col-md-8">
+			<h3 class="text-margin-bottom border-bottom">Blog edit</h3>
+			<div class="col-md-12">
+				<%= form_for(@blog) do |f| %>
+					<div class="row blog-margin" style="border-bottom: 1px solid #f7f7f7;">
+						<h4>Title:</h4>
+						<p><%= f.text_field :title %></p>
+					</div>
 
-		<h3>Category</h3>
-		<p style="color: red">未実装</p>
+					<div class="row blog-margin" style="border-bottom: 1px solid #f7f7f7;">
+						<p style="font-size: 18px;">Category: <span style="color: red">未実装</span></p>
+					</div>
 
-		<h3>Body</h3>
-		<%= f.text_area :blog_body %>
+					<div class="row blog-margin">
+						<h4>Body:</h4>
+					</div>
+					<div class="row blog-margin">
+						<%= f.text_area :blog_body, class: "col-md-12" %>
+					</div>
 
-		<h3>Image</h3>
-		<%= f.attachment_field :blog_image %>
+					<div class="row blog-margin" style="border-bottom: 1px solid #f7f7f7; border-top: 1px solid #f7f7f7;">
+						<h4>Image:</h4>
+						<p><%= f.attachment_field :blog_image %></p>
+					</div>
 
-		<%= f.submit 'Update' %>
-	<% end %>
-	<%= link_to 'Cancel', blogs_path %>
-
+					<div class="row blog-margin">
+						<%= f.submit 'Update', class: "btn-sm" %>　
+						<%= link_to 'Cancel', blogs_path %>
+					</div>
+				<% end %>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-2"></div>
 </div>
 

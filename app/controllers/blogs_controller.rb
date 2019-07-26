@@ -1,12 +1,17 @@
 class BlogsController < ApplicationController
   def index
     @blogs = Blog.page(params[:page]).reverse_order
-    @user = current_user
+    @info_user = current_user
+    @create_user = current_user
+    @create_new = Blog.new
   end
 
   def show
     @blog = Blog.find(params[:id])
+    @info_user = @blog.user
     @login_user = current_user
+    @create_user = current_user
+    @create_new = Blog.new
   end
 
   def new
