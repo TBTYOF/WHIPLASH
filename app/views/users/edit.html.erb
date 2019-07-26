@@ -5,9 +5,11 @@
 		<%= f.text_field :name %>
 		<h2>Profile</h2>
 		<%= f.text_area :profile_text %>
+		<h2>Mini profile</h2>
+		<%= f.text_field :mini_profile_text %>
 		<h2>Profile image</h2>
 		<%= f.attachment_field :profile_image %>
 		<%= f.submit 'Update' %>
 	<% end %>
-	<%= link_to 'Cancel', user_path(@user) %>
+	<%= link_to 'Cancel', users_path %>
 </div>

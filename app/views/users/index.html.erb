@@ -1,23 +1,38 @@
 <div class="container">
 	<div class="row">
 		<div class="col-md-3">
-			<%= render "layouts/sidebar_left" %>
+			<%= render "layouts/sidebar_left", info_user: @info_user, create_user: @create_user, create_new: @create_new %>
 		</div>
-
 		<div class="col-md-6">
-			<h1>Users</h1>
-			<% @users.each do |user| %>
-			<%= link_to user.name, user_path(user) %>
-			<%= link_to user_path(user) do %>
-			<%= attachment_image_tag user, :profile_image, :fill, 60, 60, format: 'jpg', fallback: "no_image.jpg", size:'60x60' %>
-			<% end %>
-
-			<%= user.profile_text %>
-			<% end %>
+			<h3 class="text-margin-bottom border-bottom">Users</h3>
+			<div class="col-md-12 blogs-container"  style="margin-bottom: 30px;">
+				<% @users.each do |user| %>
+					<div class="row" style="margin-bottom: 20px;">
+						<div class="col-md-3">
+							<%= link_to user_path(user) do %>
+								<%= attachment_image_tag user, :profile_image, :fill, 100, 100, format: 'jpg', fallback: "no_image.jpg", size:'100x100' %>
+							<% end %>
+						</div>
+						<div class="col-md-8">
+							<table class="table table-hover table-responsive">
+								<tbody>
+									<tr style="border-bottom: 1px solid #ddd;">
+										<td><%= link_to user.name, user_path(user) %></td>
+										<td><%= user.blogs.count %> blogs</td>
+									</tr>
+								</tbody>
+							</table>
+							<p><%= user.mini_profile_text %></p>
+						</div>
+					</div>
+				<% end %>
+			</div>
 		</div>
-
-		<div class="col-md-2">
+		<div class="col-md-3">
 			<%= render "layouts/sidebar_right" %>
 		</div>
+	</div>
+	<div style="text-align: center;">
+		<%= paginate @users, class: "paginate" %>
 	</div>
 </div>

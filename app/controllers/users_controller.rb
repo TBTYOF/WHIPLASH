@@ -7,7 +7,7 @@ class UsersController < ApplicationController
   end
 
   def index
-    @users = User.all
+    @users = User.page(params[:page]).reverse_order
     @info_user = current_user
     @create_user = current_user
     @create_new = Blog.new
@@ -34,6 +34,6 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:name, :profile_text, :profile_image)
+    params.require(:user).permit(:name, :profile_text, :profile_image, :mini_profile_text)
   end
 end
