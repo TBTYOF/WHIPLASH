@@ -12,6 +12,7 @@ class BlogsController < ApplicationController
     @login_user = current_user
     @create_user = current_user
     @create_new = Blog.new
+    @comment = Comment.new
   end
 
   def new
