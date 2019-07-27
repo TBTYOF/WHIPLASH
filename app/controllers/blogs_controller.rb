@@ -13,6 +13,8 @@ class BlogsController < ApplicationController
     @create_user = current_user
     @create_new = Blog.new
     @comment = Comment.new
+    @comments = @blog.comments.page(params[:page]).reverse_order
+    binding.pry
   end
 
   def new

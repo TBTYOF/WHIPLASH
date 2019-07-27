@@ -27,7 +27,16 @@
 				<% end %>
 			</div>
 			<div class="col-md-12">
-				
+				<% @comments.each do |comment| %>
+					<%= comment.comment_body %>
+
+				<% end %>
+			</div>
+			<div class="col-md-12">
+				<%= form_for [@blog, @comment] do |f| %>
+					<%= f.text_area :comment_body, rows:'5' %>
+					<%= f.submit 'To comment' %>
+				<% end %>
 			</div>
 		</div>
 		<div class="col-md-3">
