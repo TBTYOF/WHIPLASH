@@ -8,6 +8,10 @@ class CommentsController < ApplicationController
 	end
 
 	def destroy
+		blog = Blog.find(params[:blog_id])
+		comment = Comment.find(params[:id])
+		comment.destroy
+		redirect_to blog_path(blog)
 	end
 
 	private

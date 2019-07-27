@@ -14,7 +14,6 @@ class BlogsController < ApplicationController
     @create_new = Blog.new
     @comment = Comment.new
     @comments = @blog.comments.page(params[:page]).reverse_order
-    binding.pry
   end
 
   def new
