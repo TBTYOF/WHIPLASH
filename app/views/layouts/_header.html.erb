@@ -4,32 +4,33 @@
 
 	<div id="sp-menu">
 
-		<h3>MENU</h3>
+		<h3 style="text-align: center; margin-bottom: 50px;">MENU</h3>
 
 		<% if user_signed_in? %>
 			<ul>
-				<li><%= link_to 'My page', user_path(current_user.id) %></li>
-				<li><%= link_to 'Blogs', blogs_path %></li>
-				<li><%= link_to 'Users', users_path %></li>
-				<li><%= link_to 'Topic', home_topic_path %></li>
-				<li><%= link_to 'Log out', destroy_user_session_path, method: :delete %></li>
+				<li><%= link_to 'My page', user_path(current_user.id), class: "menu-text" %></li>
+				<li><%= link_to 'Blogs', blogs_path, class: "menu-text" %></li>
+				<li><%= link_to 'Users', users_path, class: "menu-text" %></li>
+				<li><%= link_to 'Topic', home_topic_path, class: "menu-text" %></li>
+				<li><%= link_to 'Log out', destroy_user_session_path, method: :delete, class: "menu-text" %></li>
 			</ul>
 		<% else %>
 			<ul>
-				<li><%= link_to 'Home', '/'  %></li>
-				<li><%= link_to 'About', home_about_path %></li>
-				<li><%= link_to 'Topic', home_topic_path %></li>
-				<li><%= link_to 'Sign Up', new_user_registration_path %></li>
-				<li><%= link_to 'Log in', new_user_session_path %></li>
+				<li><%= link_to 'Home', '/', class: "menu-text"  %></li>
+				<li><%= link_to 'About', home_about_path, class: "menu-text" %></li>
+				<li><%= link_to 'Topic', home_topic_path, class: "menu-text" %></li>
+				<li><%= link_to 'Sign Up', new_user_registration_path, class: "menu-text" %></li>
+				<li><%= link_to 'Log in', new_user_session_path, class: "menu-text" %></li>
 			</ul>
 		<% end %>
-
-		<div id="hm-icon">
-			<a href="#" class="menu-trigger">
-				<span></span>
-				<span></span>
-				<span></span>
-			</a>
-		</div>
 	</div>
+
+	<div id="hm-icon">
+		<a href="javascript:location.href = location;" class="menu-trigger">
+			<span></span>
+			<span></span>
+			<span></span>
+		</a>
+	</div>
+
 </header>
