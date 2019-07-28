@@ -1,2 +1,12 @@
 <h3 class="border-bottom">Category</h2>
 <h3 class="border-bottom">Images</h3>
+
+<% side_images.each do |image| %>
+	<div class="">
+		<div class="col-md-6" style="margin-bottom: 15px; ">
+			<%= link_to do %>
+				<%= attachment_image_tag image, :blog_image, :fill, 115, 115, format: "jpg" %>
+			<% end %>
+		</div>
+	</div>
+<% end %>
