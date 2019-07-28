@@ -6,7 +6,6 @@ Rails.application.routes.draw do
 
   resources :users
   resources :blogs do
-  	resources :categorys
   	resources :comments, only: [:create, :destroy]
   	resource :favorites, only: [:create, :destroy]
   end
