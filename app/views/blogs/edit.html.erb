@@ -2,34 +2,34 @@
 	<div class="row">
 		<div class="col-md-2"></div>
 		<div class="col-md-8">
-			<h3 class="text-margin-bottom border-bottom">Blog edit</h3>
+			<h3 class="text-margin-bottom border-bottom font_2">Blog edit</h3>
 			<div class="col-md-12">
 				<%= form_for(@blog) do |f| %>
 					<div class="row blog-margin" style="border-bottom: 1px solid #f7f7f7;">
-						<h4>Title:</h4>
+						<h4 class="font_3">Title:</h4>
 						<p><%= f.text_field :title %></p>
 					</div>
 
 					<div class="row blog-margin" style="border-bottom: 1px solid #f7f7f7;">
-						<h4>Category:</h4>
+						<h4 class="font_3">Category:</h4>
 						<p><%= f.text_field :category %></p>
 					</div>
 
 					<div class="row blog-margin">
-						<h4>Body:</h4>
+						<h4 class="font_3">Body:</h4>
 					</div>
-					<div class="row blog-margin">
-						<%= f.text_area :blog_body, class: "col-md-12" %>
+					<div class="row blog-margin font_3">
+						<%= f.text_area :blog_body, rows:"15", class: "col-md-12" %>
 					</div>
 
 					<div class="row blog-margin" style="border-bottom: 1px solid #f7f7f7; border-top: 1px solid #f7f7f7;">
-						<h4>Image:</h4>
+						<h4 class="font_3">Image:</h4>
 						<p><%= f.attachment_field :blog_image %></p>
 					</div>
 
 					<div class="row blog-margin">
-						<%= f.submit 'Update', class: "btn-sm" %>　
-						<%= link_to 'Cancel', blogs_path %>
+						<%= f.submit 'Update', class: "btn btn-default font_4" %>　
+						<%= link_to 'Cancel', blogs_path, class: "font_4" %>
 					</div>
 				<% end %>
 

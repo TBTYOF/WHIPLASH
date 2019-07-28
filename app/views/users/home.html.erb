@@ -2,7 +2,7 @@
 
 	<div id="container">
 			<div class="main_visual_text_container">
-		<p class="main_visual_text font-family">
+		<p class="main_visual_text font-family font_3">
 			The world is a book<br>
 			and those who do not travel<br>
 			read only one page.<br>
@@ -20,5 +20,62 @@
 	</div>
 </div>
 
-<%= link_to 'Log in', new_user_session_path %>
-<%= link_to 'Sign Up', new_user_registration_path %>
+<div class="container">
+	<div class="row">
+		<div class="col-md-3">
+			<h3 class="border-bottom font_2" style="margin-bottom: 20px;">Welcome</h3>
+			<div style="margin: 20px 0;">
+				<span><%= link_to 'Log in', new_user_session_path, class: "btn btn-info col-md-12 font_4" %></span>
+			</div>
+			<div>　</div>
+			<div>
+				<span><%= link_to 'Sign Up', new_user_registration_path, class: "btn btn-success col-md-12 font_4" %></span>
+			</div>
+		</div>, class: "btn btn-info"
+
+		<div class="col-md-6">
+			<h3 class="text-margin-bottom border-bottom font_2">Recent Blogs</h3>
+			<% @blogs.each do |blog| %>
+			<div class="col-md-12 blogs-container"  style="margin-bottom: 30px;">
+				<div class="col-md-7">
+					<%= attachment_image_tag blog, :blog_image, :fill, 290, 250, format: 'jpg' %>
+				</div>
+				<div class="col-md-5">
+					<table class="table table-responsive">
+						<thead>
+							<tr>
+								<th colspan="2"><%= link_to blog.title, blog_path(blog), class: "font_3" %></th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td><%= blog.created_at.strftime('%Y/%m/%d') %></td>
+								<td class="btn font_6" style="background-color: #848282; color: white;"><%= blog.category %></td>
+							</tr>
+							<tr>
+								<td colspan="2">
+									<%= link_to user_path(blog.user_id) do %>
+										<%= attachment_image_tag blog.user, :profile_image, :fill, 60, 60, format: 'jpg', fallback: "no_image.jpg", size:'60x60' %><br>
+										<%= blog.user.name %>
+									<% end %>
+								</td>
+							</tr>
+							<tr>
+								<td class="font_4"><span class="glyphicon glyphicon-comment" aria-hidden="true"> <%= blog.comments.count %></span></td>
+								<td>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<% end %>
+		</div>
+		<div class="col-md-3">
+			<%= render "layouts/sidebar_right", side_images: @side_images %>
+		</div>
+	</div>
+	<div style="text-align: center;">
+		<%= paginate @blogs, class: "paginate" %>
+	</div>
+</div>

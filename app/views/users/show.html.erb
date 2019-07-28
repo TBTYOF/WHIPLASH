@@ -2,7 +2,7 @@
 
 	<div id="container">
 			<div class="main_visual_text_container">
-		<p class="main_visual_text font-family">
+		<p class="main_visual_text font-family font_3">
 			The world is a book<br>
 			and those who do not travel<br>
 			read only one page.<br>
@@ -27,7 +27,7 @@
 		</div>
 
 		<div class="col-md-6">
-			<h3 class="text-margin-bottom border-bottom"><strong><%= @user.name %></strong>'s blog list</h3>
+			<h3 class="text-margin-bottom border-bottom font_2"><strong><%= @user.name %> </strong>'s blog list</h3>
 			<% @blogs.each do |blog| %>
 			<div class="col-md-12 blogs-container"  style="margin-bottom: 30px;">
 				<div class="col-md-7">
@@ -37,17 +37,17 @@
 					<table class="table">
 						<thead>
 							<tr>
-								<th colspan="2" style="font-size: 18px;"><%= link_to blog.title, blog_path(blog) %></th>
+								<th colspan="2"><%= link_to blog.title, blog_path(blog), class: "font_3" %></th>
 							</tr>
 						</thead>
 						<tbody>
 							<tr>
 								<td style="line-height: 40px;"><%= blog.created_at.strftime('%Y/%m/%d') %></td>
-								<td class="btn" style="margin: 10px 0; font-size: 11.8px; background-color: #848282; color: white;"><%= blog.category %></td>
+								<td class="btn font_6" style="margin: 10px 0; background-color: #848282; color: white;"><%= blog.category %></td>
 							</tr>
 							<tr>
-								<td><span class="glyphicon glyphicon-comment" aria-hidden="true"> <%= blog.comments.count %></span></td>
-								<td>
+								<td><span class="glyphicon glyphicon-comment font_4" aria-hidden="true"> <%= blog.comments.count %></span></td>
+								<td class="font_4">
 									<% if blog.favorited_by?(current_user) %>
 										<%= link_to blog_favorites_path(blog), method: :delete do %>
 											<span class="glyphicon glyphicon-heart" aria-hidden="true" style="color: red;"> <%= blog.favorites.count %></span>

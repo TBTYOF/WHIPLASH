@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
 	def home
+    @blogs = Blog.page(params[:page]).reverse_order
+    @side_images = Blog.order("RANDOM()").limit(10)
 	end
 	def about
 	end
