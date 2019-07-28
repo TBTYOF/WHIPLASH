@@ -21,7 +21,25 @@ $(document).on('turbolinks:load', function(){
 	$('.menu-trigger').on('click', function(){
 		$(this).toggleClass('active');
 		$('#sp-menu').fadeToggle();
+		$('#container').fadeToggle();
 		return false;
 	});
 });
 
+$(document).on('turbolinks:load', function(){
+	$('.slide').css('background-size','100% 370px');});
+
+$(document).on('turbolinks:load', function(){
+	$("#theTarget").skippr({
+		transition: 'slide',
+		speed: 1000,
+		easing: 'easeQuart',
+		navType: 'block',
+		childrenElementType: 'div',
+		arrows: true,
+		autoPlay: true,
+		autoPlayDuration: 3000,
+		keyboardOnAlways: true,
+		hidePrevious: false
+	});
+});
