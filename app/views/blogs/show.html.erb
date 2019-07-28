@@ -28,9 +28,9 @@
 					<%= link_to blog_favorites_path(@blog), method: :post do %>
 						<span class="glyphicon glyphicon-heart" aria-hidden="true"></span>
 					<% end %>
-				<% end %>
+				<% end %>　　
 				<% if @blog.user == current_user %>
-					<%= link_to 'Edit', edit_blog_path(@blog), class: "btn btn-primary" %>
+					<%= link_to 'Edit', edit_blog_path(@blog), class: "btn btn-primary" %>　
 					<%= link_to 'Delete', blog_path(@blog), method: :delete, "data-confirm"=> "Do you really want to delete this?", class: "btn btn-danger" %>
 				<% end %>
 			</div>
