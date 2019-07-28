@@ -43,7 +43,7 @@
 						<tbody>
 							<tr>
 								<td><%= blog.created_at.strftime('%Y/%m/%d') %></td>
-								<td class="btn" style="font-size: 10px; background-color: #848282; color: white;">Category</td>
+								<td class="btn" style="font-size: 11.8px; background-color: #848282; color: white;"><%= blog.category %></td>
 							</tr>
 							<tr>
 								<td colspan="2">
@@ -74,7 +74,7 @@
 			<% end %>
 		</div>
 		<div class="col-md-3">
-			<%= render "layouts/sidebar_right", side_images: @side_images %>
+			<%= render "layouts/sidebar_right", side_images: @side_images, categorys: @categorys %>
 		</div>
 	</div>
 	<div style="text-align: center;">

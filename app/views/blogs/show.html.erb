@@ -1,3 +1,24 @@
+<div class="main_visual_container">
+	<div id="container">
+		<div class="main_visual_text_container">
+			<p class="main_visual_text font-family">
+				The world is a book<br>
+				and those who do not travel<br>
+				read only one page.<br>
+				<br>
+				St. Augustine
+			</p>
+		</div>
+		<div id="theTarget">
+			<div class="slide_blogs_image1 slide"></div>
+			<div class="slide_blogs_image2 slide"></div>
+			<div class="slide_blogs_image3 slide"></div>
+			<div class="slide_blogs_image4 slide"></div>
+			<div class="slide_blogs_image5 slide"></div>
+		</div>
+	</div>
+</div>
+
 <div class="container">
 	<div class="row">
 		<div class="col-md-3">
@@ -10,7 +31,7 @@
 				<strong><%= @blog.title %></strong>
 			</div>
 			<div class="col-md-12 blog-margin">
-				<span class="btn" style="font-size: 10px; background-color: #848282; color: white;">Category</span>　　<%= @blog.created_at.strftime('%Y/%m/%d %H:%M') %>
+				<span class="btn" style="font-size: 11.8px; background-color: #848282; color: white;"><%= @blog.category %></span>　　<%= @blog.created_at.strftime('%Y/%m/%d %H:%M') %>
 			</div>
 			<div class="col-md-12 blog-margin">
 				<%= attachment_image_tag @blog, :blog_image, :fill, 525, 450, format: 'jpg' %>
@@ -65,10 +86,15 @@
 				<% end %>
 			</div>
 		</div>
+
 		<div class="col-md-3">
-			<%= render "layouts/sidebar_right", side_images: @side_images %>
+			<%= render "layouts/sidebar_right", side_images: @side_images, categorys: @categorys %>
+		</div>
+
 	</div>
+
 	<div style="text-align: center;">
 		<%= paginate @comments, class: "paginate" %>
 	</div>
+
 </div>

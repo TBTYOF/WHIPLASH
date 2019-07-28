@@ -1,20 +1,20 @@
 class CategorysController < ApplicationController
-	def index
-	end
-
-	def show
-	end
-
-	def new
-	end
 	def create
+	    blog = Blog.find(params[:blog_id])
+	    category = current_user.categorys.new(category_params)
+	    category.blog_id = blog.id
+	    category.category = blog.category
+	    category.save
+	    binding.pry
+	    redirect_to blog_path(blog.id)
 	end
 
-	def edit
-	end
 	def update
 	end
 
-	def destroy
+
+	private
+	def category_params
+		params.require(:category).permit(:user, :blog, :category)
 	end
 end
