@@ -15,7 +15,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @blogs = @user.blogs
+    @blogs = @user.blogs.page(params[:page]).reverse_order
     @info_user = @user
     @create_user = current_user
     @create_new = Blog.new
