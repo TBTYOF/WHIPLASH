@@ -1,0 +1,83 @@
+<div class="main_visual_container">
+
+	<div id="container">
+			<div class="main_visual_text_container">
+		<p class="main_visual_text font-family">
+			The world is a book<br>
+			and those who do not travel<br>
+			read only one page.<br>
+			<br>
+			St. Augustine
+		</p>
+	</div>
+		<div id="theTarget">
+			<div class="slide_blogs_image1 slide"></div>
+			<div class="slide_blogs_image2 slide"></div>
+			<div class="slide_blogs_image3 slide"></div>
+			<div class="slide_blogs_image4 slide"></div>
+			<div class="slide_blogs_image5 slide"></div>
+		</div>
+	</div>
+</div>
+
+<div class="container">
+	<div class="row">
+		<div class="col-md-3">
+			<%= render "layouts/sidebar_left", info_user: @info_user, create_user: @create_user, create_new: @create_new %>
+		</div>
+
+		<div class="col-md-6">
+			<h3 class="text-margin-bottom border-bottom">Recent Blogs</h3>
+			<% @blogs.each do |blog| %>
+			<div class="col-md-12 blogs-container"  style="margin-bottom: 30px;">
+				<div class="col-md-7">
+					<%= attachment_image_tag blog, :blog_image, :fill, 290, 250, format: 'jpg' %>
+				</div>
+				<div class="col-md-5">
+					<table class="table table-responsive">
+						<thead>
+							<tr>
+								<th colspan="2" style="font-size: 18px;"><%= link_to blog.title, blog_path(blog) %></th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td><%= blog.created_at.strftime('%Y/%m/%d') %></td>
+								<td class="btn" style="font-size: 11.8px; background-color: #848282; color: white;"><%= blog.category %></td>
+							</tr>
+							<tr>
+								<td colspan="2">
+									<%= link_to user_path(blog.user_id) do %>
+										<%= attachment_image_tag blog.user, :profile_image, :fill, 60, 60, format: 'jpg', fallback: "no_image.jpg", size:'60x60' %><br>
+										<%= blog.user.name %>
+									<% end %>
+								</td>
+							</tr>
+							<tr>
+								<td><span class="glyphicon glyphicon-comment" aria-hidden="true"> <%= blog.comments.count %></span></td>
+								<td>
+									<% if blog.favorited_by?(current_user) %>
+										<%= link_to blog_favorites_path(blog), method: :delete do %>
+											<span class="glyphicon glyphicon-heart" aria-hidden="true" style="color: red;"> <%= blog.favorites.count %></span>
+										<% end %>
+									<% else %>
+										<%= link_to blog_favorites_path(blog), method: :post do %>
+											<span class="glyphicon glyphicon-heart" aria-hidden="true"></span>
+										<% end %>
+									<% end %>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<% end %>
+		</div>
+		<div class="col-md-3">
+			<%= render "layouts/sidebar_right", side_images: @side_images, categorys: @categorys %>
+		</div>
+	</div>
+	<div style="text-align: center;">
+		<%= paginate @blogs, class: "paginate" %>
+	</div>
+</div>

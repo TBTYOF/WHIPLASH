@@ -1,0 +1,29 @@
+<h3 class="border-bottom">User info</h3>
+<div class="col-md-12">
+	<table class="table table-responsive" style="word-wrap:break-all;">
+		<tbody>
+			<tr>
+				<td style="border-top: none;">
+					<%= attachment_image_tag info_user, :profile_image, :fill, 100,100, format: 'jpeg', fallback: "no_image.jpg", size:'180x180', class: "pai" %>
+				</td>
+			</tr>
+			<tr>
+				<td><%= info_user.name %></td>
+			</tr>
+			<tr>
+				<td><%= info_user.profile_text %></td>
+			</tr>
+		</tbody>
+	</table>
+	<% if info_user == current_user %>
+		<%= link_to edit_user_path(create_user), class: "btn btn-default btn-block" do %>
+			<span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>
+		<% end %>
+	<% end %>
+	<div style="margin-top: 50px;">
+		<h3 class="border-bottom" style="margin-bottom: 30px;">Create New</h3>
+		<%= link_to new_blog_path, class: "btn btn-default btn-block" do %>
+			<span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+		<% end %>
+	</div>
+</div>

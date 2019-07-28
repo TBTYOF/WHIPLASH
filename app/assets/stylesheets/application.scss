@@ -1,0 +1,224 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+ @import "bootstrap-sprockets";
+ @import "bootstrap";
+
+ * {
+ color: #6c6b6b;
+ }
+ a {
+ color: #6c6b6b;
+ }
+
+ header, nav, h3, .main-visual, footer, .font-family {
+	font-family: Chalkduster, "Bradley Hand", Couriser, "Segoe Print", sans-serif;
+}
+
+ .border-bottom {
+ text-align: center;
+ border-bottom: 8px solid #f7f7f7;
+ }
+
+ .text-margin-bottom {
+ margin-bottom: 50px;
+ }
+
+ .blog-margin {
+ margin-bottom: 20px;
+ }
+
+ .blogs-container {
+ border-bottom: 1px solid #f7f7f7;
+ }
+
+
+
+ #hm-icon {
+ position: fixed;
+ right: 2%;
+ top: 25px;
+ z-index: 10;
+ }
+
+ .menu-trigger, .menu-trigger span {
+	display: inline-block;
+	transition: all.4s;
+	box-sizing: border-box;
+}
+
+.menu-trigger {
+	position: relative;
+	width: 50px;
+	height: 44px;
+}
+
+.menu-trigger span {
+	position: absolute;
+	left: 0;
+	width: 100%;
+	height: 4px;
+	background-color: #000;
+	border-radius: 4px;
+}
+
+.menu-trigger span:nth-of-type(1) {
+	top: 0;
+}
+.menu-trigger span:nth-of-type(2) {
+	top: 20px;
+}
+.menu-trigger span:nth-of-type(3) {
+	bottom: 0;
+}
+
+.menu-trigger.active span:nth-of-type(1) {
+	-webkit-transform: translateY(20px) rotate(-45deg);
+	transform: translateY(20) rotate(-45deg);
+	background-color: #fff;
+}
+
+.menu-trigger.active span:nth-of-type(2) {
+	opacity: 0;
+}
+
+.menu-trigger.active span:nth-of-type(3) {
+	-webkit-transform: translateY(-20px) rotate(45deg);
+	transform: translateY(-20) rotate(-45deg);
+	background-color: #fff;
+}
+
+
+
+#sp-menu {
+	position: fixed;
+	top: 0;
+	left: 0;
+	background: #000;
+	color: #fff;
+	width: 100%;
+	min-height: 100%;
+	display: none;
+	z-index: 9;
+}
+
+#sp-menu li {
+	text-align: center;
+	margin-bottom: 30px;
+}
+
+.menu-text{
+  font-size: 19.2px;
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+ul {
+	padding: 0;
+	list-style: none;
+}
+
+
+
+
+
+.main_visual_container {
+	width: 90%;
+	margin: 0 auto;
+	position: relative;
+}
+
+.main_visual_text_container {
+	position: absolute;
+	width: 35%;
+	height: 370px;
+	background-color: rgba(0,0,0,0.5);
+	text-align: center;
+	padding-top: 105px;
+	z-index: 10;
+}
+.main_visual_text {
+	font-size: 18.43px;
+	color: white;
+}
+
+#container {
+	height: 370px;
+	margin-bottom: 50px;
+}
+
+.clearfix::after {
+	content:"";
+	display: block;
+	clear: both;
+}
+
+.slide_top_image1 {
+	background-image: url(test1.jpg);
+}
+.slide_top_image2 {
+	background-image: url(test2.jpg);
+}
+.slide_top_image3 {
+	background-image: url(test3.jpg);
+}
+.slide_top_image4 {
+	background-image: url(test4.jpg);
+}
+.slide_top_image5 {
+	background-image: url(test5.jpg);
+}
+
+.slide_users_image1 {
+	background-image: url(slide2-1.jpg);
+}
+.slide_users_image2 {
+	background-image: url(slide2-2.jpg);
+}
+.slide_users_image3 {
+	background-image: url(slide2-3.jpg);
+}
+.slide_users_image4 {
+	background-image: url(slide2-4.jpg);
+}
+.slide_users_image5 {
+	background-image: url(slide2-5.jpg);
+}
+
+.slide_blogs_image1 {
+	background-image: url(slide3-1.jpg);
+}
+.slide_blogs_image2 {
+	background-image: url(slide3-2.jpg);
+}
+.slide_blogs_image3 {
+	background-image: url(slide3-3.jpg);
+}
+.slide_blogs_image4 {
+	background-image: url(slide3-4.jpg);
+}
+.slide_blogs_image5 {
+	background-image: url(slide3-5.jpg);
+}
+
+
+.about_image {
+	background-image: url(about.JPG);
+	background-size: cover;
+	width: 70%;
+	height: 500px;
+	margin: 0 auto;
+}

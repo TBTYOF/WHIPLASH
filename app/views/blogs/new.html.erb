@@ -1,0 +1,34 @@
+<div class="container">
+	<div class="row">
+		<div class="col-md-2"></div>
+		<div class="col-md-8">
+			<h3 class="text-margin-bottom border-bottom">Create New</h3>
+			<div class="col-md-12">
+				<%= form_for(@blog) do |f| %>
+					<div class="row blog-margin" style="border-bottom: 1px solid #f7f7f7;">
+						<h4>Title:</h4>
+						<p><%= f.text_field :title %></p>
+					</div>
+
+					<div class="row blog-margin">
+						<h4>Body:</h4>
+					</div>
+					<div class="row blog-margin">
+						<p><%= f.text_area :blog_body, rows:'15', class: "col-md-12" %></p>
+					</div>
+
+					<div class="row blog-margin" style="border-bottom: 1px solid #f7f7f7; border-top: 1px solid #f7f7f7;">
+						<h4>Image:</h4>
+						<%= f.attachment_field :blog_image %>
+					</div>
+
+					<div class="row blog-margin">
+						<%= f.submit 'Create', class: "btn-sm" %>　
+						<%= link_to 'Cancel', blogs_path %>
+					</div>
+				<% end %>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-2"></div>
+</div>

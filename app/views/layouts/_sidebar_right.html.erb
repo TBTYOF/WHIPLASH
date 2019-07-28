@@ -1,0 +1,10 @@
+<h3 class="border-bottom" style="margin-bottom: 20px;">Images</h3>
+<% side_images.each do |image| %>
+	<div class="">
+		<div class="col-md-6" style="margin-bottom: 15px; ">
+			<%= link_to blog_path(image) do %>
+				<%= attachment_image_tag image, :blog_image, :fill, 115, 115, format: "jpg" %>
+			<% end %>
+		</div>
+	</div>
+<% end %>
