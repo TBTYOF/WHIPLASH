@@ -66,8 +66,7 @@
 			</div>
 		</div>
 		<div class="col-md-3">
-			<%= render "layouts/sidebar_right" %>
-		</div>
+			<%= render "layouts/sidebar_right", side_images: @side_images %>
 	</div>
 	<div style="text-align: center;">
 		<%= paginate @comments, class: "paginate" %>

@@ -15,6 +15,7 @@ class BlogsController < ApplicationController
     @create_new = Blog.new
     @comment = Comment.new
     @comments = @blog.comments.page(params[:page]).reverse_order
+    @side_images = @info_user.blogs.order("RANDOM()").limit(10)
   end
 
   def new

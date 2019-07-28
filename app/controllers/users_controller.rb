@@ -11,6 +11,7 @@ class UsersController < ApplicationController
     @info_user = current_user
     @create_user = current_user
     @create_new = Blog.new
+    @side_images = Blog.order("RANDOM()").limit(10)
   end
 
   def show
@@ -19,6 +20,7 @@ class UsersController < ApplicationController
     @info_user = @user
     @create_user = current_user
     @create_new = Blog.new
+    @side_images = @user.blogs.order("RANDOM()").limit(10)
   end
 
   def edit
