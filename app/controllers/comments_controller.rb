@@ -4,7 +4,7 @@ class CommentsController < ApplicationController
 	    @comment = current_user.comments.new(comment_params)
 	    @comment.blog_id = @blog.id
 	    if @comment.save
-	    	redirect_to blog_path(@blog.id)
+	    	redirect_to blog_path(@blog.id), notice: 'You have creatad comment successfully.'
 	    else
 	    	@info_user = @blog.user
 		    @login_user = current_user

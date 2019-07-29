@@ -41,6 +41,13 @@
 									<tr style="border-bottom: 1px solid #ddd;">
 										<td><%= link_to user.name, user_path(user), class: "font_4" %></td>
 										<td class="font_4"><%= user.blogs.count %> blogs</td>
+										<td>
+											<% if current_user.id == 1 %>
+												<%= link_to user_path(user), method: :delete, "data-confirm"=>"Do you want to delete the comment?" do %>
+													<span class="glyphicon glyphicon-trash font_4" aria-hidden="true"></span>
+												<% end %>
+											<% end %>
+										</td>
 									</tr>
 								</tbody>
 							</table>

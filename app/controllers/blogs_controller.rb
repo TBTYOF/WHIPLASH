@@ -34,7 +34,7 @@ before_action :ensure_correct_user, {only:[:edit, :update]}
     @blog = Blog.new(blog_params)
     @blog.user_id = current_user.id
     if @blog.save
-      redirect_to blog_path(@blog)
+      redirect_to blog_path(@blog), notice: 'You have creatad blog successfully.'
     else
       render new_blog_path, blog: @blog
     end
@@ -46,7 +46,7 @@ before_action :ensure_correct_user, {only:[:edit, :update]}
   def update
     @blog = Blog.find(params[:id])
     if @blog.update(blog_params)
-      redirect_to blog_path(@blog)
+      redirect_to blog_path(@blog), notice: 'You have updated blog successfully'
     else
       render :edit, blog: @blog
     end
