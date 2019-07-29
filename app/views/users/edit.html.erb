@@ -7,22 +7,15 @@
 				<%= form_for(@user) do |f| %>
 
 				<% if @user.errors.any? %>
-			        <%= @user.errors.count %>件のエラーが発生しました
-			        <% @user.errors.full_messages.each do |message| %>
-			            <%= message %>
-			        <% end %>
-			    <% end %>
-			    <% if @user.errors.any? %>
-	<div id="error_explanation" class="alert alert-danger">
-		<h2 class="error_font"><%= @user.errors.count %>errors prohibited this book from being saved:</h2>
-		<ul>
-			<% @user.errors.full_messages.each do |message| %>
-			<li><%= message %></li>
-			<% end %>
-		</ul>
-	</div>
-<% end %>
-			    
+					<div id="error_explanation" class="alert alert-danger">
+						<h2 class="error_font"><%= @user.errors.count %>件のエラーが発生しました。</h2>
+						<ul>
+							<% @user.errors.full_messages.each do |message| %>
+							<li><%= message %></li>
+							<% end %>
+						</ul>
+					</div>
+				<% end %>
 
 					<div class="row blog-margin" style="border-bottom: 1px solid #f7f7f7;">
 						<h4 class="font_3">Name:</h4>
