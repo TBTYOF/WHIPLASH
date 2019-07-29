@@ -1,4 +1,13 @@
 class BlogsController < ApplicationController
+before_action :ensure_correct_user, {only:[:edit, :update]}
+
+  def ensure_correct_user
+    if current_user.id != params[:id].to_i
+      redirect_to blogs_path
+    end
+  end
+
+
   def index
     @blogs = Blog.page(params[:page]).reverse_order
     @info_user = current_user
@@ -22,10 +31,14 @@ class BlogsController < ApplicationController
     @blog = Blog.new
   end
   def create
+    @blog = Blog.new
     blog = Blog.new(blog_params)
     blog.user_id = current_user.id
-    blog.save
-    redirect_to blog_path(blog)
+    if blog.save
+      redirect_to blog_path(blog)
+    else
+      render new_blog_path, blog: @blog
+    end
   end
 
   def edit
@@ -33,8 +46,11 @@ class BlogsController < ApplicationController
   end
   def update
     blog = Blog.find(params[:id])
-    blog.update(blog_params)
-    redirect_to blog_path(blog)
+    if blog.update(blog_params)
+      redirect_to blog_path(blog)
+    else
+      render '/blogs/new', blog: @blog
+    end
   end
 
   def destroy

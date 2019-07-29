@@ -1,4 +1,12 @@
 class UsersController < ApplicationController
+  before_action :ensure_correct_user, {only:[:edit, :update]}
+
+  def ensure_correct_user
+    if current_user.id != params[:id].to_i
+      redirect_to user_path(current_user.id)
+    end
+  end
+
 	def home
     @blogs = Blog.page(params[:page]).reverse_order
     @side_images = Blog.order("RANDOM()").limit(10)
@@ -30,8 +38,12 @@ class UsersController < ApplicationController
   end
   def update
     user = User.find(params[:id])
-    user.update(user_params)
-    redirect_to users_path
+    if user.update(user_params)
+      redirect_to users_path
+    else
+      @user = current_user
+      render 'users/edit', user: @user
+    end
   end
 
   def destroy
