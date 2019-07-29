@@ -70,3 +70,6 @@ gem 'devise'
 gem "refile", require: "refile/rails", github: "manfe/refile"
 gem "refile-mini_magick"
 gem "rails-i18n"
+# gem 'json'
+# gem 'mysql2'
+# gem 'listen', '>= 3.0.5', '< 3.2'
