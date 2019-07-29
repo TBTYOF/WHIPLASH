@@ -31,11 +31,10 @@ before_action :ensure_correct_user, {only:[:edit, :update]}
     @blog = Blog.new
   end
   def create
-    @blog = Blog.new
-    blog = Blog.new(blog_params)
-    blog.user_id = current_user.id
-    if blog.save
-      redirect_to blog_path(blog)
+    @blog = Blog.new(blog_params)
+    @blog.user_id = current_user.id
+    if @blog.save
+      redirect_to blog_path(@blog)
     else
       render new_blog_path, blog: @blog
     end
@@ -45,11 +44,11 @@ before_action :ensure_correct_user, {only:[:edit, :update]}
     @blog = Blog.find(params[:id])
   end
   def update
-    blog = Blog.find(params[:id])
-    if blog.update(blog_params)
-      redirect_to blog_path(blog)
+    @blog = Blog.find(params[:id])
+    if @blog.update(blog_params)
+      redirect_to blog_path(@blog)
     else
-      render '/blogs/new', blog: @blog
+      render :edit, blog: @blog
     end
   end
 

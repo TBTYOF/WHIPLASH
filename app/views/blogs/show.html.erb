@@ -52,11 +52,23 @@
 				<% end %>　　
 				<% if @blog.user == current_user %>
 					<%= link_to 'Edit', edit_blog_path(@blog), class: "btn btn-primary" %>　
-					<%= link_to 'Delete', blog_path(@blog), method: :delete, "data-confirm"=> "Do you really want to delete this?", class: "btn btn-danger font_4" %>
+					<%= link_to 'Delete', blog_path(@blog), method: :delete, "data-confirm"=> "Do you really want to delete this?", class: "btn btn-danger" %>
 				<% end %>
 			</div>
 			<div class="col-md-12">
 				<% @comments.each do |comment| %>
+
+					<% if @comments.errors.any? %>
+						<div id="error_explanation" class="alert alert-danger">
+							<h2 class="error_font"><%= @comments.errors.count %>件のエラーが発生しました。</h2>
+							<ul>
+								<% @comments.errors.full_messages.each do |message| %>
+								<li><%= message %></li>
+								<% end %>
+							</ul>
+						</div>
+					<% end %>
+
 					<table class="table">
 						<tbody>
 							<tr>
